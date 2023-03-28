@@ -1,4 +1,4 @@
-# Pizzaproject
+# PIZZA PROJECT
 
 Badea Claudiu Gabriel
 Andonov Georgi
@@ -6,7 +6,7 @@ Noten Lisa
 Belemezov Yordan
 Agarroum Shirine
 
-## Getting started
+## WELCOME!
 
 Welcome to our Pizzeria Project!
 
