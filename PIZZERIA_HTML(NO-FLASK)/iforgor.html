@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <title>Forgor Password</title>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="icon" href="images/favicon.png">
+  </head>
+
+<!--RESET FORM-->
+
+  <body>
+    <div class="wrapper">
+    <div class="title-text">
+      <div class="title reset">Forgot password?</div>
+    </div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <label for="reset" class="slide reset">Reset Form</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form action="" method="post" class="reset">
+          <div class="field">
+             <input placeholder="Username" type="text" name="nume">
+          </div>
+          <div class="pass-link">
+            <br>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Submit">
+            </div>
+            <div class="goback-link">Made a mistake? <a href="account.html">Go back now!</a></div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+<!--SCRIPTS-->
+
+    <script>
+      const resetText = document.querySelector(".title-text .reset");
+      const resetForm = document.querySelector("form.reset");
+      const resetBtn = document.querySelector("label.reset");
+      const resetLink = document.querySelector("form .reset-link a");
+      resetBtn.onclick = (()=>{
+        resetForm.style.marginLeft = "-50%";
+        resetText.style.marginLeft = "-50%";
+      });
+      resetBtn.onclick = (()=>{
+        resetForm.style.marginLeft = "0%";
+        resetText.style.marginLeft = "0%";
+      });
+      resetLink.onclick = (()=>{
+        resetBtn.click();
+        return false;
+      });
+    </script>
+  </body>
+</html>

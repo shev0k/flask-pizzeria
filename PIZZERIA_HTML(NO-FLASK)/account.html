@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<title>Account</title>
+		<link rel="stylesheet" href="CSS/login.css">
+		<link rel="icon" href="images/favicon.png">
+	</head>
+	<body>
+		<div class="wrapper">
+		<div class="title-text">
+			<div class="title login">Login Form</div>
+			<div class="title signup">Signup Form</div>
+		</div>
+
+<!--ACCOUNT FORMS-->
+
+		<div class="form-container">
+			<div class="slide-controls">
+				<input type="radio" name="slide" id="login" checked>
+				<input type="radio" name="slide" id="signup">
+				<label for="login" class="slide login">Login</label>
+				<label for="signup" class="slide signup">Signup</label>
+				<div class="slider-tab"></div>
+			</div>
+			<div class="form-inner">
+				<form class="login" action="/login" method="post">
+					<div class="field">
+						<input placeholder="Username" type="text" name="username" required>
+					</div>
+					<div class="field">
+						<input placeholder="Password" type="password" name="password" required>
+					</div>
+					<div class="pass-link">
+						<a href="iforgor.html">Forgot password?</a>
+					</div>
+					<div class="field btn">
+						<div class="btn-layer"></div>
+						<input type="submit" value="Login">
+					</div>
+					<div class="signup-link">Made a mistake? <a href="index.html">Go back now!</a>
+					</div>
+				</form>
+				<form action="/signup" method="post" class="signup">
+					<div class="field">
+						<input placeholder="Username" type="text" name="username" required>
+					</div>
+					<div class="field">
+						<div class="field">
+							<input placeholder="E-mail" type="text" name="email" required>
+						</div>
+						<div class="field">
+							<input placeholder="Password" type="password" name="password" required>
+						</div>
+						<div class="field btn">
+							<div class="btn-layer"></div>
+							<input type="submit" value="Submit">
+						</div>
+				</form>
+				</div>
+			</div>
+		</div>
+
+<!--SCRIPTS-->
+
+		<script>
+			const loginText = document.querySelector(".title-text .login");
+			const loginForm = document.querySelector("form.login");
+			const loginBtn = document.querySelector("label.login");
+			const signupBtn = document.querySelector("label.signup");
+			signupBtn.onclick = (()=>{
+			  loginForm.style.marginLeft = "-50%";
+			  loginText.style.marginLeft = "-50%";
+			});
+			loginBtn.onclick = (()=>{
+			  loginForm.style.marginLeft = "0%";
+			  loginText.style.marginLeft = "0%";
+			});
+			signupLink.onclick = (()=>{
+			  signupBtn.click();
+			  return false;
+			});
+		</script>
+	</body>
+</html>

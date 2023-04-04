@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" type="text/css">
+		<title>Cart</title>
+		<link rel="stylesheet" href="CSS/cart.css">
+		<link rel="icon" href="images/favicon.png">
+	</head>
+	<body>
+		<main class="container">
+			<h1 class="heading">
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img style="float: right; margin-right: -30px;" src="images/logo_small.png" alt="Mario and Luigi'"></a>
+				<ion-icon style="float: left;"name="caret-back-circle-outline"></ion-icon>
+				<a style="margin-left: 10px;" href="index.html">Go back</a>
+			</h1>
+
+<!--PAYMENT-->
+
+			<div class="item-flex">
+				<section class="checkout">
+					<h2 class="section-heading">Payment Details</h2>
+					<div class="payment-form">
+						<div class="payment-method">
+							<a style="pointer-events: none" href="cart_cash.html" id="branding"><img src="images/card_selected.jpg" alt="Card"></a>
+							<a href="cart_cash.html" id="branding"><img src="images/cash.jpg" alt="Cash"></a>
+						</div>
+						<form action="#">
+							<div class="cardholder-name">
+								<label for="cardholder-name" class="label-default">Cardholder name</label>
+								<input type="text" name="cardholder-name" id="cardholder-name" class="input-default" placeholder="Rick Astley">
+							</div>
+							<div class="card-number">
+								<label for="card-number" class="label-default">Card number</label>
+								<input type="number" name="card-number" id="card-number" class="input-default" placeholder="1234 1234 1234 1234">
+							</div>
+							<div class="input-flex">
+								<div class="expire-date">
+									<label for="expire-date" class="label-default">Expiration date</label>
+									<div class="input-flex">
+										<input type="number" name="month" id="expire-date" placeholder="dd" min="1" max="12"
+											class="input-default">
+										/
+										<input type="number" name="year" id="expire-date" placeholder="yy" min="22"
+											class="input-default">
+									</div>
+								</div>
+								<div class="cvv">
+									<label for="cvv" class="label-default">CVV</label>
+									<input type="number" name="cvv" id="cvv" class="input-default" placeholder="123">
+								</div>
+							</div>
+						</form>
+					</div>
+					<a href="prep.html">
+						<button style="float: right;"class="btn btn-outline">
+						<b>Pay $ <b id="subtotal">1.25</b></b>
+						</button>
+					</a>
+				</section>
+
+<!--CART-->
+
+				<section class="cart">
+					<div class="cart-item-box">
+						<h2 class="section-heading">Order Summery</h2>
+						<div class="product-card">
+							<div class="card">
+								<div class="img-box">
+									<img src="images/dessert1.jpg" alt="dessert1" width="100px" class="product-img">
+								</div>
+								<div class="detail">
+									<h4 class="product-name">Chocolate Lava Cake</h4>
+									<div class="wrapper">
+										<div class="product-qty">
+											<button id="decrement">
+												<ion-icon style="color: black;" name="remove-outline"></ion-icon>
+											</button>
+											<span id="quantity">1</span>
+											<button id="increment">
+												<ion-icon style="color: black;" name="add-outline"></ion-icon>
+											</button>
+										</div>
+										<div class="price">
+											<span>$</span><span id="price">1.25</span>
+										</div>
+									</div>
+								</div>
+								<button class="product-close-btn">
+									<ion-icon name="close-outline"></ion-icon>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="amount">
+							<div class="total">
+								<span>Total price</span> <span>$ <span id="subtotal2">1.25</span></span>
+							</div>
+						</div>
+						<div class="discount-token">
+							<label for="discount-token" class="label-notes">Notes</label>
+							<div class="wrapper-flex">
+								<input type="text" name="discount-token" id="discount-token" class="input-notes" placeholder="Additional details about the order">
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+<!--SCRIPTS-->
+
+		<script src="JS/cart.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</body>
+</html>
