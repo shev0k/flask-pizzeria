@@ -7,9 +7,9 @@
 		<title>About</title>
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Fonts/font-awesome.min.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-		<link rel="icon" href="{{ url_for('static', filename='Images/favicon.png')}}">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="CSS/style.css">
+		<link rel="icon" href="images/favicon.png">
 	</head>
 	<body class="header-collapse">
 		<div id="site-content">
@@ -18,17 +18,14 @@
 
 			<header class="site-header">
 				<div class="container">
-					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img src="{{ url_for('static', filename='Images/logo_small.png') }}" alt="Mario and Luigi'"></a>
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img src="images/logo_small.png" alt="Mario and Luigi'"></a>
 					<nav class="main-navigation">
 						<button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
 							<li class="menu-item"><a href="index.html">Home</a></li>
 							<li class="menu-item  current-menu-item"><a href="about.html">About</a></li>
-							<li class="menu-item"><a href="shoppingcart.html">Cart {{orderpizza}}</a></li>
-							<li class="menu-item"><a href="account.html">{{name}}</a></li>
-							{%if mariologin == True%}
-								<li class="menu-item"><a href="ratings.html">Ratings</a></li>
-    						{%endif%}
+							<li class="menu-item"><a href="cart.html">Cart</a></li>
+							<li class="menu-item"><a href="account.html">Account</a></li>
 						</ul>
 					</nav>
 					<div class="mobile-menu"></div>
@@ -40,11 +37,11 @@
 			<div class="hero">
 				<div class="slider">
 					<ul class="slides">
-						<li class="lazy-bg" data-background="{{ url_for('static', filename='images/slide-2.jpg') }}">
+						<li class="lazy-bg" data-background="images/slide-2.jpg">
 							<div class="container">
 								<br><br><br>
 								<h3 class="slide-subtitle"></h3>
-								<h3><img class="slide-title" src="{{ url_for('static', filename='Images/cover-about-page.png') }}"></h3>
+								<h3><img class="slide-title" src="images/cover-about-page.png"></h3>
 							</div>
 						</li>
 					</ul>
@@ -62,14 +59,13 @@
 									<br>
 									<h2 class="entry-title">Our history</h2>
 									<br><br>
-									<p>Our love affair with Italian food is long-term. In 1990, two wise man called Mario and Luigi knew pizza in Italy could be better. So they started a business making authentic pizza from Italy and other delicacies. After opening the first-ever „Mario and Luigi's Pizzeria”, they started serving the greatest pizzas Italy deserved.</p>
-									<p>Current owners and operators, Mario and Luigi, lead the company following their own ideals, and with the expertise of Fontys' students (group 2-5), they have moved the company forward in developing the vision of pizza to perfection.</p>
+									<p>Our passion for Italian cuisine has been a long-lasting love affair. Back in 1990, two wise men named Mario and Luigi noticed that pizza in Italy could be improved. That's when they decided to start a business, crafting authentic Italian pizza and other delicacies. And so, the first-ever "Mario and Luigi's Pizzeria" was born, serving the best pizza that Italy deserved.</p>
+									<p>Today, Mario and Luigi still lead the company, adhering to their own principles. With the help of Fontys' students (group 1-2), they continue to develop their vision of perfect pizza.</p>
 									<br>
 									<h2 class="entry-title">What do we do?</h2>
-									<p>Bringing a dining table to life with great food, great music and great company. Lifting glasses and spirits. Getting smiles on faces and sauce on t-shirts. That's what we're all about.<br></p>
-									<p>In our “from-scratch” kitchen, we carefully combine fresh, locally sourced, and organic ingredients into delicious dishes crafted with care and detail. From our house-made mozzarella to our fresh-daily dough and tomato sauces, we prepare each of our meals with the same love and care you would, in your very own home.  This means, it's more than just about great food!</p>
-									<p>When you join us for a meal at „Mario and Luigi's Pizzeria”, it feels as if you were getting together with your friends, neighbors, and family. Giving our community a place to eat, drink, and relax is what motivates us to continue creating the best food and environment we possibly can.</p>
-									<p>Therefore, our pizzeria considers the pursuit of the perfect pizza, as a tribute to all those who have made pizza what it is today. The menu is steeped in age-old traditions, cooking methods, as well as the best quality ingredients possible. With our unique ambiance, use of finest ingredients, made-from-scratch daily offerings, and best-in-class guest service, we hope that your dining experience with us is truly amazing!</p>
+									<p>At "Mario and Luigi's Pizzeria," we create an unforgettable dining experience. We bring your table to life with fantastic food, music, and company. Our goal is to make you smile, lift your spirits, and maybe even get some sauce on your shirt!<br></p>
+									<p>In our from-scratch kitchen, we carefully combine fresh, locally sourced, and organic ingredients into delicious dishes. From our house-made mozzarella to our fresh daily dough and tomato sauces, we prepare each meal with the same love and attention you would find in your own home. That's what makes our food more than just great – it's an experience!</p>
+									<p>When you dine with us, it's like gathering with friends, neighbors, and family. We want to provide our community with a place to eat, drink, and unwind. Pursuing the perfect pizza is our tribute to all those who have made pizza what it is today. Our menu is steeped in age-old traditions and cooking methods, using only the best quality ingredients. With our unique ambiance, daily made-from-scratch offerings, and exceptional guest service, we strive to make your dining experience with us truly amazing.</p>
 								</div>
 							</div>
 						</div>
@@ -81,7 +77,7 @@
 
 			<footer class="site-footer">
 				<div class="container">
-					<br><br><br><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="{{ url_for('static', filename='Images/logo.png') }}"" alt="Mario and Luigi'"></a><br>
+					<br><br><br><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="images/logo.png" alt="Mario and Luigi'"></a><br>
 					<p class="copy">&emsp;&emsp;&emsp; © Fontys project</p>
 				</div>
 			</footer>
@@ -89,8 +85,8 @@
 
 <!--SCRIPTS-->
 
-		<script src="{{ url_for('static', filename='JS/animations.js') }}"></script>
-		<script src="{{ url_for('static', filename='JS/plugins.js') }}"></script>
-		<script src="{{ url_for('static', filename='JS/app.js') }}"></script>
+		<script src="js/animations.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
 	</body>
 </html>
