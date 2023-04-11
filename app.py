@@ -332,7 +332,7 @@ def pastasectione():
     return render_template("index.html#PASTA")
 
 @app.route("/addbur", methods=["GET", "POST"])
-def pastaCarbonara():
+def Pastacarbonara():
     global orderTotal, userLoggedIn, loginfirst, amountPastatomato, costPastatomato
     if userLoggedIn== True:
         orderTotal+=7.99

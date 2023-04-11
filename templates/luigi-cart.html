@@ -7,63 +7,123 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic">
 		<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" type="text/css">
 		<title>Cart</title>
-		<link rel="stylesheet" href="CSS/cart.css">
-		<link rel="icon" href="images/favicon.png">
+		
+		
+
+		<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/luigi.css') }}">
+
 	</head>
 	<body>
 		<main class="container">
 			<h1 class="heading">
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img style="float: left;" src="images/logo_small.png" alt="Mario and Luigi'"></a>
+				<div class="flexydiv">
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img style="float: left;" src="{{ url_for('static', filename='images/logo_small.png') }}" alt="Mario and Luigi'"></a>
+				
+				<form  class='form' action="/remove" method="post">
+					<div class="flexboxy">
+					<input class="testy" name="afval" type="number" placeholder="Enter ID of finished order here">
+					<input class="shrinky" type="submit" placeholder="remove">
+				</div>
+				</form>
+				<ul class="menu"></ul>
+				<li class="menu-item"><a href="ratings.html">Ratings</a></li>
+				</ul>
+				</div>
 			</h1>
 
 <!--PAYMENT-->
-
+{%for ids, trash in order.items()%}
 			<div class="item-flex">
-				<section class="checkout">
+				
+				
 					<div class="cart-item-box">
 						<h2 class="section-heading">Order Summery</h2>
 						<div class="product-card">
 							<div class="card">
-								<div class="img-box">
-									<img src="images/dessert1.jpg" alt="dessert1" width="100px" class="product-img">
-								</div>
+								<h2 class="product-name" style="color:antiquewhite">ID: {{ids}} </h2>
 								<div class="detail">
-									<h4 class="product-name">Chocolate Lava Cake</h4>
+									<h3 class="product-name" style="color:antiquewhite">Pizza </h3>
+									{%for item,price,amount in trash["pizza-list"]%}
+									<h4 class="product-name">{{item}}</h4>
 									<div class="wrapper">
 										<div class="product-qty">
 											<button id="#">
 												<ion-icon style="color: black;" name="alert-outline"></ion-icon>
 											</button>
-											<span id="quantity">1 items</span>
+											<span id="quantity">{{amount}} times</span>
 										</div>
 									</div>
+									{%endfor%}
+									<h3 class="product-name" style="color:antiquewhite">Pastas </h3>
+									{%for item,price,amount in trash["pasta-list"]%}
+									<h4 class="product-name">{{item}}</h4>
+									<div class="wrapper">
+										<div class="product-qty">
+											<button id="#">
+												<ion-icon style="color: black;" name="alert-outline"></ion-icon>
+											</button>
+											<span id="quantity">{{amount}} times</span>
+										</div>
+									</div>
+									{%endfor%}
+									<h3 class="product-name" style="color:antiquewhite">Drinks </h3>
+									{%for item,price,amount in trash["drink-list"]%}
+									<h4 class="product-name">{{item}}</h4>
+									<div class="wrapper">
+										<div class="product-qty">
+											<button id="#">
+												<ion-icon style="color: black;" name="alert-outline"></ion-icon>
+											</button>
+											<span id="quantity">{{amount}} times</span>
+										</div>
+									</div>
+									{%endfor%}
+									<h3 class="product-name" style="color:antiquewhite">Desserts </h3>
+									{%for item,price,amount in trash["dessert-list"]%}
+									<h4 class="product-name">{{item}}</h4>
+									<div class="wrapper">
+										<div class="product-qty">
+											<button id="#">
+												<ion-icon style="color: black;" name="alert-outline"></ion-icon>
+											</button>
+											<span id="quantity">{{amount}} times</span>
+										</div>
+									</div>
+									{%endfor%}
+									
 								</div>
+								<form action="/removeorder" method="post">
 								<button class="product-close-btn">
 									<ion-icon name="close-outline"></ion-icon>
 								</button>
+							</form>
 							</div>
 						</div>
 					</div>
-				</section>
+
+				
+				
 
 <!--CART-->
 
-				<section class="cart">
+				
 					<div class="check">
-						<div style="padding-bottom: 450px;"class="discount-token2">
+						<div class="discount-token2">
 							<label for="discount-token2" class="label-notes">Notes</label>
 							<div class="wrapper-flex">
-								<input type="text" name="discount-token2" id="discount-token2" class="input-notes" placeholder="Additional details about the order">
+								<textarea type="text" name="discount-token2" id="discount-token2" class="input-notes" cols="40" rows="7">{{trash['notess']}}</textarea>
 							</div>
 						</div>
 					</div>
-				</section>
+				
+				
 			</div>
+			{%endfor%}
 		</main>
 
 <!--SCRIPTS-->
-
-		<script src="JS/cart.js"></script>
+		<script src="{{ url_for('static', filename='JS/cart.js') }}"></script>
 		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 	</body>
