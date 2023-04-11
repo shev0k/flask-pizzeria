@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+		<title>Leave a review</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/rating.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body class="header-collapse">
+      
+      <header class="site-header">
+				<div class="container">
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img src="{{ url_for('static', filename='Images/logo_small.png') }}" alt="Mario and Luigi'"></a>
+					<nav class="main-navigation">
+						<button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="shoppingcart.html">Cart {{orderpizza}}</a></li>
+							<li class="menu-item"><a href="account.html">{{name}}</a></li>
+							{%if mariologin == True%}
+								<li class="menu-item"><a href="ratings.html">Ratings</a></li>
+    						{%endif%}
+						</ul>
+					</nav>
+					<div class="mobile-menu"></div>
+				</div>
+			</header>
+    
+      
+    <main class="main-content">
+        <div class="yellowline"></div>
+        <div class="superbox">
+          <h1 class="texty">Leave a review</h1>
+          <br>
+        <form class="rating" id="review" action="/review" method="post">
+            <div class="box">
+            <label>
+              <input type="radio" name="stars" value="1" required/>
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="2" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="3" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>   
+            </label>
+            <label>
+              <input type="radio" name="stars" value="4" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="5" />
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+              <span class="icon">★</span>
+            </label>
+        </div>
+            </form>
+            <br>
+            <br>
+            
+            <br>
+            <br>
+            <textarea form="review" type="text" name="critic" placeholder="enter your comments here" class="button1 center-placeholder" cols="40" rows="7" ></textarea>
+            <br>
+            <input form="review" type="submit" placeholder="SUBMIT" class="button2000"/>
+          </div>
+          </main>   
+          <script src="{{ url_for('static', filename='JS/ratings.js') }}"></script>
+       
+        </body>
+</html>

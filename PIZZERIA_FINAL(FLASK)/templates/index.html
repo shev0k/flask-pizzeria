@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<title>Mario and Luigi's</title>
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" type="text/css">
+		
+		
+		
+		<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Fonts/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/food_menu.css') }}">
+
+		{%if hellomario != ""%}
+    		<body onload="alert('{{hellomario}}')">
+    	{%endif%}
+	</head>
+	<body class="header-collapse">
+		<div id="site-content">
+
+<!--NAVBAR-->
+
+			<header class="site-header">
+				<div class="container">
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img src="{{ url_for('static', filename='Images/logo_small.png') }}" alt="Mario and Luigi'"></a>
+					<nav class="main-navigation">
+						<button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="shoppingcart.html">Cart {{orderpizza}}</a></li>
+							<li class="menu-item"><a href="account.html">{{name}}</a></li>
+							{%if mariologin == True%}
+								<li class="menu-item"><a href="ratings.html">Ratings</a></li>
+    						{%endif%}
+						</ul>
+					</nav>
+					<div class="mobile-menu"></div>
+				</div>
+			</header>
+
+<!--LANDING-PAGE-->
+
+			<div class="hero">
+				<div class="slider">
+					<ul class="slides">
+						<li class="lazy-bg" data-background="{{ url_for('static', filename='Images/slide-1.jpg') }}">
+							<div class="container">
+								<br><br><br>
+								<h3 class="slide-subtitle"></h3>
+								<h3><img class="slide-title" src="{{ url_for('static', filename='Images/cover-main-page.png') }}"></h3>
+								<br><br>
+								{%if alreadylogino == False%}
+								<a onclick="alert('You need to log in first')" href="account.html" class="button">Order now</a>
+								{%else%}
+								<a  href="#PIZZA" class="button">Order now</a>
+								{%endif%}
+							</div>
+						</li>
+						<li class="lazy-bg" data-background="{{ url_for('static', filename='Images/slide-1.jpg') }}">
+							<div class="container">
+								<br><br><br>
+								<h3 class="slide-subtitle"></h3>
+								<h3><img class="slide-title" src="{{ url_for('static', filename='Images/cover-main-page2.png') }}"></h3>
+								<br><br>
+								{%if alreadylogino == False%}
+								<a onclick="alert('You need to log in first')" href="account.html" class="button">Order now</a>
+								{%else%}
+								<a  href="#PIZZA" class="button">Order now</a>
+								{%endif%}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+<!--OUR-SERVICES-->
+
+			<main class="main-content">
+				<div class="fullwidth-block testimonial-section">
+					<div class="container">
+						<div class="quote-slider">
+							<ul class="slides">
+								<li>
+									<blockquote>
+										<p>OUR SERVICES</p>
+										<cite> HEALTHY FOOD</a></cite>
+										<span> The best of the best! True harmony for your taste buds!</span>
+									</blockquote>
+								</li>
+								<li>
+									<blockquote>
+										<p>OUR SERVICES</p>
+										<cite> FASTEST DELIVERY</a></cite>
+										<span> So blazing fast, you won't even realize the food is already on the table!</span>
+									</blockquote>
+								</li>
+								<li>
+									<blockquote>
+										<p>OUR SERVICES</p>
+										<cite> ORIGINAL RECIPES</a></cite>
+										<span> Try the real taste of Italy! Luigi and Mario are prepared to make you a wonderful meal!</span>
+									</blockquote>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+<!--PIZZA-CONTAINER-->
+
+				<div class="fullwidth-block" data-bg-color="#191919">
+					<div class="container">
+						<header class="section-header">
+							<section id="PIZZA"></section>
+							<a href="shoppingcart.html" class="button2cart">CART</a>
+							<a href="#DESSERTS" class="button2">DESSERTS</a>
+							<a href="#DRINKS" class="button2">DRINKS</a>
+							<a href="#PASTA" class="button2">PASTA</a>	
+							<h2 class="section-title">PIZZA</h2>
+						</header>
+						<div class="menufood">
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pizza1.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Margherita di Bufala</h5>
+										<h5 class="price"> €7,99 </h5>
+									</div>
+									<p>Pizza with tomato sauce, mozzarella, buffalo mozzarella, parmesan, oregano and garlic oil on the edge.</p>
+
+									
+									<form action="/addmar" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first');location.href(account.html)" class="buttontest" value="+"></input>
+										<!--<input type="submit" onclick="alert('You need to login first'); location.replace('#PIZZA')" class="buttontest" value="+">-->
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -OREGANO &#10; -GARLIC  &#10; .  &#10; THE PIZZA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pizza2.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Sicilian Sausage & Salami</h5>
+										<h5 class="price"> €7,49 </h5>
+									</div>
+									<p>Pizza with tomato sauce, mozzarella, sausage, salami, oregano and garlic oil on the edge.</p>
+									<form action="/addsicilian" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -OREGANO &#10; -GARLIC  &#10; .  &#10; THE PIZZA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pizza3.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>BBQ Meatlovers pizza</h5>
+										<h5 class="price"> €8,49 </h5>
+									</div>
+									<p>Pizza with BBQ sauce, chorizo, ham (turkey), pepperoni, mozzarella, parsley and garlic oil on the rim.</p>
+									<form action="/addbbq" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -PARSLEY &#10; -GARLIC  &#10; .  &#10; THE PIZZA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pizza4.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Parmigiana eggplant</h5>
+										<h5 class="price"> €8,99 </h5>
+									</div>
+									<p>Pizza with tomato sauce, mozzarella, buffalo, eggplant, cherry tomato, black pepper and garlic oil on the edge.</p>
+									<form action="/addpar" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -PEPPER &#10; -OREGANO &#10; -GARLIC  &#10; .  &#10; THE PIZZA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pizza5.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Caprese pizza</h5>
+										<h5 class="price"> €7,49 </h5>
+									</div>
+									<p>Pizza with Tomato sauce, mozzarella, cherry tomato, buffalo mozzarella, pesto swirl and garlic oil on the rim.</p>
+									<form action="/addcap" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -PESTO &#10; -GARLIC  &#10; .  &#10; THE PIZZA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pizza6.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>4 Cheese pizza</h5>
+										<h5 class="price"> €9,99 </h5>
+									</div>
+									<p>Pizza with Crème frache, mozzarella, cheddar, Gouda cheese and gorgonzola and garlic oil on the rim.</p>
+									<form action="/add4chee" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PIZZA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -GARLIC  &#10; .  &#10; THE PIZZA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+<!--PASTA-CONTAINER-->
+			
+				<div class="fullwidth-block" data-bg-color="#191919">
+					<section id="PASTA"></section>
+					<div class="container">
+						<header class="section-header3">
+							<a href="shoppingcart.html" class="button3cart">CART</a>
+							<a href="#DESSERTS" class="button3">DESSERTS</a>
+							<a href="#DRINKS" class="button3">DRINKS</a>
+							<a href="#PIZZA" class="button3">PIZZA</a>
+							<h2 class="section-title">PASTA</h2>
+						</header>
+						<div class="menufood">
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pasta1.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Burst Tomato Pasta</h5>
+										<h5 class="price"> €7,99 </h5>
+									</div>
+									<p>With a couple pints of tomatoes, garlic, olive oil & Parmesan, enjoy this easy burst cherry tomato pasta for a quick, delicious dinner.</p>
+									<form action="/addbur" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PASTA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PASTA')" class="buttontest" value="+">
+										{%endif%}
+										
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; -GARLIC &#10; . &#10; -THE PASTA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pasta2.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Spaghetti Bolognese</h5>
+										<h5 class="price"> €7.49 </h5>
+									</div>
+									<p>Classic pasta dish that combines loads of rich meat sauce, tons of ripe red tomatoes, and all the spaghetti you can slurp.</p>
+									<form action="/addbol" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PASTA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PASTA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -GARLIC &#10; -CELERY &#10; . &#10; -THE PASTA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/pasta3.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Spaghetti Carbonara</h5>
+										<h5 class="price"> €8,49 </h5>
+									</div>
+									<p>Discover the superb spaghetti carbonara. This cheesy pasta dish is an Italian favourite prepared with the right technique.</p>
+									<form action="/addcar" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#PASTA')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#PASTA')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -GLUTEN &#10; -EGG &#10; -MILK &#10; . &#10; -THE PASTA CAN BE ORDERED GLUTENFREE" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+<!--DRINKS-CONTAINER-->
+
+				<div class="fullwidth-block" data-bg-color="#191919">
+					<section id="DRINKS"></section>
+					<div class="container">
+						<header class="section-header3">
+							<a href="shoppingcart.html" class="button3cart">CART</a>
+							<a href="#DESSERTS" class="button3">DESSERTS</a>
+							<a href="#PASTA" class="button3">PASTA</a>
+							<a href="#PIZZA" class="button3">PIZZA</a>	
+							<h2 class="section-title">DRINKS</h2>
+						</header>
+						<div class="menufood">
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/drink1.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Moretti</h5>
+										<h5 class="price"> €2,49 </h5>
+									</div>
+									<p>A special blend of quality hops creates a well balanced lager with some hoppy and fruity notes.</p>
+									<form action="/addmor" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#DRINKS')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#DRINKS')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -ALCOHOL &#10; -TRACES OF FRUITS" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/drink2.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Wine</h5>
+										<h5 class="price"> €8,99 </h5>
+									</div>
+									<p>Choosing the best Italian food and wine pairing helps you leave a restaurant super satisfied with a giant grin on your face.</p>
+									<form action="/addwin" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#DRINKS')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#DRINKS')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -ALCOHOL &#10; -GRAPES" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/drink3.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Chaudfontaine</h5>
+										<h5 class="price"> €0,99 </h5>
+									</div>
+									<p>Due to its purity and balanced mineral content, Chaudfontaine Natural Mineral Water has a unique, soft taste.</p>
+									<form action="/addwater" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#DRINKS')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#DRINKS')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -WATER" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+<!--DESSERTS-CONTAINER-->
+
+				<div class="fullwidth-block" data-bg-color="#191919">
+					<section id="DESSERTS"></section>
+					<div class="container">
+						<header class="section-header3">
+							<a href="shoppingcart.html" class="button3cart">CART</a>
+							<a href="#DRINKS" class="button3">DRINKS</a>
+							<a href="#PASTA" class="button3">PASTA</a>
+							<a href="#PIZZA" class="button3">PIZZA</a>
+							<h2 class="section-title">DESSERTS</h2>
+						</header>
+						<div class="menufood">
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/dessert1.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Chocolate Lava Cake</h5>
+										<h5 class="price"> €2,49 </h5>
+									</div>
+									<p>Molten chocolate cakes, with a center of warm dark chocolate, the first time you try one, it may seem like magic.</p>
+									<form action="/addcho" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#DESSERTS')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#DESSERTS')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -CHOCOLATE &#10; -EGG &#10; -MILK &#10; -GLUTEN" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/dessert2.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Dutch Mini Pancakes</h5>
+										<h5 class="price"> €2,99 </h5>
+									</div>
+									<p>Also known as poffertjes, these lovely little morsels are very addictive with a layer of powdered sugar and a little butter.</p>
+									<form action="/adddut" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#DESSERTS')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#DESSERTS')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -EGG &#10; -MILK &#10; -GLUTEN" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+							<div class="food-items">
+								<img src="{{ url_for('static', filename='Images/dessert3.jpg') }}">
+								<div class="details">
+									<div class="details-sub">
+										<h5>Giant Chocolate Chip Cookie</h5>
+										<h5 class="price"> €1,99 </h5>
+									</div>
+									<p>A giant American cookie with delicious pieces of milk chocolate.</p>
+									<br>
+									<form action="/addgia" method="post">
+										{%if alreadylogino == False%}
+										<input type="submit" onclick="alert('You need to login first'); location.replace('#DESSERTS')" class="buttontest" value="+">
+										{%else%}
+										<input type="submit" onclick="alert('Item has been added to the cart!'); location.replace('#DESSERTS')" class="buttontest" value="+">
+										{%endif%}
+									</form>
+									<button title="Allergies: &#10; -EGG &#10; -MILK &#10; -GLUTEN" class="btnallergy">
+										<ion-icon style="color: black;" name="help-outline"></ion-icon>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+<!--FOOTER-->
+
+			<footer class="site-footer">
+				<div class="container">
+					<br><br><br><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="{{ url_for('static', filename='Images/logo.png') }}" alt="Mario and Luigi'"></a><br>
+					<p class="copy">&emsp;&emsp;&emsp; © Fontys project</p>
+				</div>
+			</footer>
+		</div>
+
+<!--SCRIPTS-->
+
+<script src="{{ url_for('static', filename='JS/animations.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/plugins.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/app.js') }}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</body>
+</html>

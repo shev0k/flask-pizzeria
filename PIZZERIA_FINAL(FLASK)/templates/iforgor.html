@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <title>Forgor Password</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='Images/favicon.png') }}">
+    {%if mailmsg != ""%}
+    <body onload="alert('{{mailmsg}}')">
+    {%endif%}
+  </head>
+
+<!--RESET FORM-->
+
+  <body>
+    <div class="wrapper">
+    <div class="title-text">
+      <div class="title reset">Forgot password?</div>
+    </div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <label for="reset" class="slide reset"><a href="iforgor.html" class="reseti">Reset Form</a></label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form action="/mail" method="post" class="reset">
+          <div class="field">
+             <input placeholder="Email" type="text" name="gmail">
+          </div>
+          <div class="pass-link">
+            <br>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Submit">
+            </div>
+            <div class="goback-link">Made a mistake? <a href="account.html">Go back now!</a></div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+<!--SCRIPTS-->
+
+      <script src="{{ url_for('static', filename='JS/forgor.js') }}"></script>
+  </body>
+</html>

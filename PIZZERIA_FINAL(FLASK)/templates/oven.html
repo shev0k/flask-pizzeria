@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<title>Preparation</title>
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" type="text/css">
+		
+		
+		
+		<meta http-equiv="refresh" content="10" >
+		<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Fonts/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  </head>
+  <body class="header-collapse">
+    <div id="site-content">
+
+<!--NAVBAR-->
+
+			<header class="site-header">
+				<div class="container">
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img src="{{ url_for('static', filename='images/logo_small.png') }}" alt="Mario and Luigi'"></a>
+					<nav class="main-navigation">
+						<button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="shoppingcart.html">Cart {{orderpizza}}</a></li>
+							<li class="menu-item"><a href="account.html">{{name}}</a></li>
+							{%if mariologin == True%}
+								<li class="menu-item"><a href="ratings.html">Ratings</a></li>
+    						{%endif%}
+						</ul>
+					</nav>
+					<div class="mobile-menu"></div>
+				</div>
+			</header>
+
+<!--LANDING-PAGE-->
+    
+			<div class="hero">
+				<div class="slider">
+					<ul class="slides">
+						<li class="lazy-bg" data-background="{{ url_for('static', filename='images/slide-3.jpg') }}">
+							<div class="container">
+								<br><br><br>
+								<h3 class="slide-subtitle"></h3>
+								<h3><img class="slide-title" src="{{ url_for('static', filename='images/cover-prep-page.png') }}"></h3>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+<!--INFORMATION-->
+
+<div class="fullwidth-block" data-bg-color="#191919">
+	<div class="container"><br><br><br><br><br>
+		<div id="preparing" class="row">
+			<div class="column_prep">
+				<a href="prep.html#preparing"><img src="{{ url_for('static', filename='images/prepared.png') }}" style="width:100%"></a>
+			</div>
+			<div class="column_prep">
+				<a href="oven.html#preparing"><img src="{{ url_for('static', filename='images/in_oven.png') }}" style="width:100%"></a>
+			</div>
+			<div class="column_prep">
+				<a href="ready.html#preparing"><img src="{{ url_for('static', filename='images/not_ready.png') }}" style="width:100%"></a>
+			</div>
+		  </div>
+	</div>
+</div>
+
+<!--FOOTER-->
+
+<footer class="site-footer">
+  <div class="container">
+    <br><br><br><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Mario and Luigi'"></a><br>
+    <p class="copy">&emsp;&emsp;&emsp; © Fontys project</p>
+  </div>
+</footer>
+</div>
+
+<!--SCRIPTS-->
+
+<script src="{{ url_for('static', filename='JS/animations.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/plugins.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/app.js') }}"></script>
+
+  </body>
+</html>
