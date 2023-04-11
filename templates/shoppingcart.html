@@ -7,24 +7,18 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic">
 		<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" type="text/css">
 		<title>Cart</title>
-		
-		
-
-
 		<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
-		
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Fonts/font-awesome.min.css') }}">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
-
-
-
-
-
-		<script type="text/javascript">confirm("\nHELLO,\n\nPLEASE PAY AT THE CASHIER!");</script>
+		{%if grerror != ""%}
+		<script type="text/javascript">confirm("\n{{grerror}}");</script>
+		{%endif%}
+		
 	</head>
 	<body>
 		<main class="container">
 			<h1 class="heading">
-				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img style="float: right; margin-right: -30px;" src="{{ url_for('static', filename='images/logo_small.png') }}" alt="Mario and Luigi'"></a>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="branding"><img style="float: right; margin-right: -30px;" src="{{ url_for('static', filename='Images/logo_small.png') }}" alt="Mario and Luigi'"></a>
 				<a href="index.html"><ion-icon style="float: left;"name="caret-back-circle-outline"></ion-icon></a>
 				<a style="margin-left: 10px;" href="index.html">Go back</a>
 			</h1>
@@ -36,35 +30,65 @@
 					<h2 class="section-heading">Payment Details</h2>
 					<div class="payment-form">
 						<div class="payment-method">
-							<a href="shoppingcart.html" id="branding"><img src="{{ url_for('static', filename='images/card.jpg') }}" alt="Card"></a>
-							<a style="pointer-events: none" href="cart_cash.html" id="branding"><img src="{{ url_for('static', filename='images/cash_selected.jpg') }}" alt="Cash"></a>
+							<a style="pointer-events: none" href="cart_cash.html" id="branding"><img src="{{ url_for('static', filename='Images/card_selected.jpg') }}" alt="Card"></a>
+							<a href="cart_cash.html" id="branding"><img src="{{ url_for('static', filename='Images/cash.jpg') }}" alt="Cash"></a>
 						</div>
-						<!--<form action="#">
-							<a href="prep.html">
-								<button style="float: right;"class="btn btn-outline">
-								<b>CONFIRM AFTER PAYING</b>
-								</button>
-								</a>
-						</form>-->
+						<form action="/paypal" method="post" id="paypall">
+							<div class="cardholder-name">
+								<label for="cardholder-name" class="label-default">Cardholder name</label>
+								<input type="text" name="cardholder-name" id="cardholder-name" class="input-default" placeholder="Rick Astley" required>
+							</div>
+							<div class="card-number">
+								<label for="card-number" class="label-default">Card number</label>
+								<input type="number" name="card-number" id="card-number" class="input-default" placeholder="1234 1234 1234 1234" required>
+							</div>
+							<div class="input-flex">
+								<div class="expire-date">
+									<label for="expire-date" class="label-default">Expiration date</label>
+									<div class="input-flex">
+										<input type="number" name="month" id="expire-date" placeholder="dd" min="1" max="12"
+											class="input-default" required>
+										/
+										<input type="number" name="year" id="expire-date" placeholder="yy" min="22"
+											class="input-default" required>
+									</div>
+								</div>
+								<div class="cvv">
+									<label for="cvv" class="label-default">CVV</label>
+									<input type="number" name="cvv" id="cvv" class="input-default" placeholder="123" required>
+								</div>
+							</div>
+						</form>
 					</div>
-					<form action="/info" method="post" id="sendit">
-					<button style="float: right;"class="btn btn-outline" type="submit">
-						<b>CONFIRM AFTER PAYING!</b>
-						</button>
-					</form>
-					<form action="/resetcash" method="post" id="reset">
+					<a href="prep.html">
+						<button style="float: right;"class="btn btn-outline" type="submit" form="paypall">
+							<b>Pay € <b id="subtotal">{{totals}}</b></b>
+							</button>
+						<form action="/reset" method="post" id="reset">
 						<button style="float: right; margin-right: 3vh;"class="btn btn-outline" type="submit" form="reset">
 							<b>Reset cart</b>
 							</button>
+						</form>
+					</input>
+					</a>
 				</section>
 
 <!--CART-->
 
-<section class="cart">
-	<div class="cart-item-box">
-		<h2 class="section-heading">Order Summery</h2>
-		<h3 style="color:beige;" class="product-name">Pizza</h3>
-		{%for item,price,amount in pizzalust%}
+
+
+
+
+
+
+
+
+
+				<section class="cart">
+					<div class="cart-item-box">
+						<h2 class="section-heading">Order Summery</h2>
+						<h3 style="color:beige;" class="product-name">Pizza</h3>
+						{%for item,price,amount in pizzalust%}
 						<div class="product-card">
 							<div class="card">
 								<div class="detail">
@@ -84,7 +108,7 @@
 							</div>
 						</div>
 						{%endfor%}
-
+						
 
 						<h3 style="color:beige;" class="product-name">Pasta</h3>
 						{%for item,price,amount in pastalust%}
@@ -154,22 +178,43 @@
 							</div>
 						</div>
 						{%endfor%}
-		
+						
 
 
-	</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<div class="wrapper">
 						<div class="amount">
 							<div class="total">
-								<span>Total price</span> <span><span id="subtotal2">{{totals}}</span></span>
+								<span>Total price</span> <span>€ <span id="subtotal2">{{totals}}</span></span>
 							</div>
 						</div>
 						<div class="discount-token">
 							<label for="discount-token" class="label-notes">Notes</label>
 							<div class="wrapper-flex">
-								
-								<input form="sendit" type="text" name="discount-token" id="discount-token" class="input-notes" placeholder="Additional details about the order">
-								
+								<input form="paypall" type="text" name="discount-token" id="discount-token" class="input-notes" placeholder="Additional details about the order">
 							</div>
 						</div>
 					</div>
@@ -178,7 +223,9 @@
 		</main>
 
 <!--SCRIPTS-->
-
+		<script src="{{ url_for('static', filename='JS/animations.js') }}"></script>
+        <script src="{{ url_for('static', filename='JS/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='JS/app.js') }}"></script>
 		<script src="{{ url_for('static', filename='JS/cart.js') }}"></script>
 		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

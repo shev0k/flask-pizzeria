@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-		<title>Account</title>
-		<link rel="stylesheet" href="CSS/login.css">
-		<link rel="icon" href="images/favicon.png">
+		<meta charset="utf-8">
+		<title>Welcome</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+		{%if error != ""%}
+		<script type="text/javascript">confirm("\n{{error}}");</script>
+		{%endif%}
+		
 	</head>
 	<body>
 		<div class="wrapper">
@@ -14,9 +18,6 @@
 			<div class="title login">Login Form</div>
 			<div class="title signup">Signup Form</div>
 		</div>
-
-<!--ACCOUNT FORMS-->
-
 		<div class="form-container">
 			<div class="slide-controls">
 				<input type="radio" name="slide" id="login" checked>
@@ -62,9 +63,6 @@
 				</div>
 			</div>
 		</div>
-
-<!--SCRIPTS-->
-
 		<script>
 			const loginText = document.querySelector(".title-text .login");
 			const loginForm = document.querySelector("form.login");
